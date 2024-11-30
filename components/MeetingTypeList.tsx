@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import HomeCard from './HomeCard'
 
+
 const MeetingTypeList = () => {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const [meetingState, setMetingState] = useState<'isJoiningMeeting'|'isScheduleMeeting'|'isInstantMeeting' | undefined>()
@@ -37,7 +38,6 @@ const [meetingState, setMetingState] = useState<'isJoiningMeeting'|'isScheduleMe
             className='bg-yellow-1'
 
         />
-
     </section>
     )
 }
