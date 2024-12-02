@@ -1,11 +1,15 @@
 'use client'
 
-import { useCall, VideoPreview } from '@stream-io/video-react-sdk'
+import { DeviceSettings, useCall, VideoPreview } from '@stream-io/video-react-sdk'
 import React, { useEffect, useState } from 'react'
+import { Button } from './ui/button'
 
-const MeetingSetup = () => {
+const MeetingSetup = ({setIsSetupComplete} : {setIsSetupComplete: (value: boolean)=> void}) => {
     const [isCamToggledOn, setIsCamToggledOn] = useState(false)
     const call = useCall();
+    if(!call){
+        throw new Error('!call')
+    }
     useEffect(() => {
         if(isCamToggledOn){
             call?.camera.disable();
@@ -18,10 +22,22 @@ const MeetingSetup = () => {
     }, [isCamToggledOn, call?.camera, call?.microphone])
     
     return (
-    <div className='flex h-screen w-full flex-col items-center justify-center gpa-3 text-white'>
-            <h1 className='text-2xl font-bold'> 
-                <VideoPreview/>
-            </h1>
+    <div className='flex h-screen w-full flex-col items-center justify-center gap-3 text-white'>
+
+                <VideoPreview className='flex items-center justify-center'/>
+                <div className='flex h-16 items-center justify-center gap-3'>
+                    <label className='flex items-center justify-center gap-2 font-medium'>
+                        <input type='checkbox' checked={isCamToggledOn} onChange={(e) => setIsCamToggledOn(e.target.checked)}/>
+                        Join with mic and camera off
+                    </label>
+                    <DeviceSettings/>
+                </div>
+                <Button className='rounded-md bg-green-500 px-4 py-2.5' onClick={()=>{
+                    call.join();
+                    setIsSetupComplete(true);
+                }}>
+                    Join the Meet Sphere
+                </Button>
     </div>
   )
 }
