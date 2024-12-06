@@ -62,9 +62,9 @@ const MeetingCard = ({
           <div className="flex gap-2">
             <Button onClick={handleClick} className="rounded bg-blue-1 px-6">
               {buttonIcon1 && (
-                <Image src={buttonIcon1} alt="feature" width={20} height={20} />
+                <Image src={buttonIcon1} alt="feature" width={20} height={20}  className="items-center justify-center"/>
               )}
-              &nbsp; {buttonText}
+              &nbsp; {buttonText} &nbsp;
             </Button>
             <Button
               onClick={() => {
