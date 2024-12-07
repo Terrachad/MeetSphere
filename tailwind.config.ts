@@ -44,9 +44,7 @@ const config: Config = {
           1: '#F9A90E',
         },
       },
-	  fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans], 
-      },
+
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
