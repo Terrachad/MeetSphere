@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation'
 import { useToast } from '@/hooks/use-toast'
 import { Textarea } from './ui/textarea'
 import ReactDatePicker from 'react-datepicker'
+import { Input } from './ui/input'
 
 const MeetingTypeList = () => {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -88,7 +89,7 @@ const createMeeting = async() => {
             img='/icons/recordings.svg'
             title='View Recordings'
             description='Check out recorded meets'
-            handleClick={()=> setMetingState('isJoiningMeeting')}
+            handleClick={()=> router.push('/recordings')}
             className='bg-purple-1'
 
         />
@@ -150,6 +151,17 @@ const createMeeting = async() => {
             buttonText='Create a Meet Sphere'
             handleClick={createMeeting}
         />
+
+        <MeetingModal 
+            isOpen={meetingState === 'isJoiningMeeting'}
+            onClose={()=> setMetingState(undefined)}
+            title='Join a Meet Sphere'
+            className='text-center'
+            buttonText='Join Sphere'
+            handleClick={() => router.push(values.link)}
+        >
+            <Input className='border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0' placeholder='Meet Sphere link goes here' onChange={(e) => setValues({...values, link: e.target.value})}/>
+        </MeetingModal>
     </section>
     )
 }
