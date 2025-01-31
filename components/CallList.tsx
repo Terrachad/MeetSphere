@@ -77,7 +77,7 @@ const CallList = ({type} : {type: 'ended' | 'upcoming' | 'recordings'}) => {
                     ? '/icons/upcoming.svg'
                     :'/icons/recordings.svg'
             }
-            title={(meeting as Call).state?.custom?.description?.substring(0,24) || 'Meet Shpere Recording'}
+            title={(meeting as Call).state?.custom?.description?.substring(0,24) || 'MeetSphere Recording'}
             date={(meeting as Call).state?.startsAt!.toLocaleString() || new Date((meeting as CallRecording).start_time).toLocaleString()}
             buttonIcon1={type === 'recordings' ? '/icons/play.svg' : undefined}
             buttonText={type === 'recordings' ? 'Play' : 'Start'}
