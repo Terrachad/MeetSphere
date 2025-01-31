@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react'
 
 const Home = () => {
   const [currentTime, setCurrentTime] = useState(new Date())
-  const { endedCalls, upcomingCalls, callRecordings, isLoading } = useGetCalls()
+  const { upcomingCalls } = useGetCalls()
 
   useEffect(() => {
     const timer = setInterval(() => {
