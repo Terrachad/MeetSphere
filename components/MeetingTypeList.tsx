@@ -42,7 +42,7 @@ const createMeeting = async() => {
             return
         }
         const startsAt = values.dateTime.toISOString() || new Date(Date.now()).toISOString()
-        const description = values.description || 'instant meeting'
+        const description = values.description || 'Instant meeting'
 
         await call.getOrCreate({
             data: {
