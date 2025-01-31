@@ -66,7 +66,7 @@ const CallList = ({type} : {type: 'ended' | 'upcoming' | 'recordings'}) => {
 
     if(isLoading) return <Loader/>
     return (
-    <div className='grid grid-cols-1 gap-5 xl:grid-cols-2'>
+    <div className='grid grid-cols-1 gap-5 xl:grid-cols-3'>
         {calls && calls.length > 0 ? calls.map((meeting: Call | CallRecording) => (
             <MeetingCard
             key={(meeting as Call).id}
@@ -77,9 +77,8 @@ const CallList = ({type} : {type: 'ended' | 'upcoming' | 'recordings'}) => {
                     ? '/icons/upcoming.svg'
                     :'/icons/recordings.svg'
             }
-            title={(meeting as Call).state?.custom?.description?.substring(0,24) || 'No description'}
-            date={(meeting as Call).state?.startsAt!.toLocaleString() || (meeting as CallRecording).start_time.toLocaleString()}
-            isPreviousMeeting={type === 'ended'}
+            title={(meeting as Call).state?.custom?.description?.substring(0,24) || 'Meet Shpere Recording'}
+            date={(meeting as Call).state?.startsAt!.toLocaleString() || new Date((meeting as CallRecording).start_time).toLocaleString()}
             buttonIcon1={type === 'recordings' ? '/icons/play.svg' : undefined}
             buttonText={type === 'recordings' ? 'Play' : 'Start'}
             handleClick={
@@ -88,6 +87,7 @@ const CallList = ({type} : {type: 'ended' | 'upcoming' | 'recordings'}) => {
             link={
                 type === 'recordings' ? (meeting as CallRecording).url : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${(meeting as Call).id}`
             }
+            
             />
         )) : (
             <h1>{noCallsMessage}</h1>
