@@ -22,7 +22,6 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    appearance={{
     <html lang="en">
       <ClerkProvider
         appearance={{
