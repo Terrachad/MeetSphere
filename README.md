@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![meetsphere-rounded-git](https://github.com/user-attachments/assets/ff4bdd8d-6a49-4177-a90c-1fea1c47297f)
 
-## Getting Started
+# 📋 Table of Contents
+* 🚀 [Introduction](#introduction)
+* ⚙️ [Tech Stack](#tech-stack)
+* 🔋 [Features](#features)
+* 🤸 [Quick Start](#quick-start)
 
-First, run the development server:
+# 🚀 Introduction
+<a name="introduction"></a>
 
+A comprehensive video conferencing platform built with Next.js and TypeScript, mirroring Zoom's functionality. This application enables secure user authentication, meeting creation, and advanced conferencing features including recording, screen sharing, and participant management.
+
+# ⚙️ Tech Stack
+<a name="tech-stack"></a>
+* Next.js
+* TypeScript
+* Clerk
+* getstream
+* shadcn
+* Tailwind CSS
+
+# 🔋 Features
+<a name="features"></a>
+## ✨ Complete Video Conferencing Solution
+### 🔐 Secure Authentication
+Experience seamless login with Clerk, supporting both social sign-on and traditional email/password methods.
+
+### 🎥 Meeting Management
+#### 📞 Instant Meetings
+Start new meetings instantly with pre-configured audio and video settings.
+
+#### 📅 Future Planning
+Schedule upcoming meetings with detailed configurations and share access links.
+
+#### 🏠 Personal Meeting Space
+Access your dedicated meeting room with a permanent link for quick meetings.
+
+### 🎮 Advanced Meeting Controls
+#### 🔄 Interactive Features
+* Meeting recording capabilities
+* Screen sharing functionality
+* Emoji reactions for engagement
+* Flexible grid layout options
+* Comprehensive participant management
+
+#### 👥 Participant Management
+* Individual participant controls
+* Mute/unmute capabilities
+* Video sharing permissions
+* Participant pinning options
+
+### 📊 Meeting History
+#### 📼 Recording Access
+Review past meeting recordings for reference.
+
+#### 📝 Meeting Archives
+Access comprehensive list of past meetings with metadata.
+
+### 🔒 Platform Security
+#### 🛡️ Real-time Protection
+Secure real-time interactions with robust privacy measures.
+
+#### 📱 Universal Access
+Responsive design ensuring seamless experience across all devices.
+
+# 🤸 Quick Start
+<a name="quick-start"></a>
+Follow these steps to set up the project locally on your machine.
+
+## Prerequisites
+Make sure you have the following installed on your machine:
+* Git
+* Node.js
+* npm (Node Package Manager)
+
+## Cloning the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/adrianhajdin/zoom-clone.git
+cd zoom-clone
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
+Install the project dependencies using npm:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Set Up Environment Variables
+Create a new file named `.env` in the root of your project and add the following content:
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 
-## Learn More
+NEXT_PUBLIC_STREAM_API_KEY=
+STREAM_SECRET_KEY=
+```
 
-To learn more about Next.js, take a look at the following resources:
+Replace the placeholder values with your actual Clerk & getstream credentials. You can obtain these credentials by signing up on the Clerk website and getstream website.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Running the Project
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
